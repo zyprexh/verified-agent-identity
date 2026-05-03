@@ -38,4 +38,4 @@ jobs:
 
       - name: Step 3 - Link Human to Agent
         run: |
-          node scripts/manualLinkHumanToAgent.js --challenge '{"zyprexh":"${{ github.event.inputs.zyprexh }}","description":"${{ github.event.inputs.zyprexh AI Agent }}"}'
+          node scripts/manualLinkHumanToAgent.js --challenge '{"zyprexh":"${{ github.event.inputs.zyprexh }}","description":"${{ github.event.inputs.zyprexhAIAgent }}"}'
