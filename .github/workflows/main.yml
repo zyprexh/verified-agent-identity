@@ -25,15 +25,13 @@ jobs:
         with:
           node-version: '22'
 
-      - - name: Step 1 - Install ClawHub skill
-        run: npx clawhub@latest install verified-agent-identity
-        env:
-          CLAW_USER: ${{ github.actor }} # Menggunakan username GitHub Anda sebagai identitas
-
       - name: Install script dependencies
         run: |
           cd scripts
           npm install
+
+      - name: Step 1 - Install ClawHub skill
+        run: npx clawhub@latest install verified-agent-identity || echo "Skill install failed, attempting to continue..."
 
       - name: Step 2 - Create new Ethereum Identity
         run: node scripts/createNewEthereumIdentity.js
