@@ -1,5 +1,13 @@
 name: Verify Human Identity
 
+  run: |
+    npm test
+    # or
+    npm run verify
+    # or
+    make verify
+    # etc.
+
 on:
   workflow_dispatch:
     inputs:
