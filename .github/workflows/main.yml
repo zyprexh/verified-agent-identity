@@ -23,7 +23,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
 
       - name: Step 1 - Install ClawHub skill
         run: npx clawhub@latest install verified-agent-identity
@@ -38,4 +38,4 @@ jobs:
 
       - name: Step 3 - Link Human to Agent
         run: |
-          node scripts/manualLinkHumanToAgent.js --challenge '{"name":"zyprexh","description":"zyprexh AI Agent"}'
+          node scripts/manualLinkHumanToAgent.js --challenge '{"zyprexh":"${{ github.event.inputs.zyprexh }}","description":"${{ github.event.inputs.zyprexh AI Agent }}"}'
