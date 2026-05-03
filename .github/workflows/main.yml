@@ -26,13 +26,9 @@ jobs:
           node-version: '22'
 
       - - name: Step 1 - Install ClawHub skill
-        run: |
-          # Memberikan waktu jeda agar tidak terkena rate limit
-          sleep 5
-          # Mencoba install secara global terlebih dahulu
-          npm install -g clawhub
-          # Jalankan instalasi skill
-          clawhub install verified-agent-identity || npx clawhub@latest install verified-agent-identity
+        run: npx clawhub@latest install verified-agent-identity
+        env:
+          CLAW_USER: ${{ github.actor }} # Menggunakan username GitHub Anda sebagai identitas
 
       - name: Install script dependencies
         run: |
